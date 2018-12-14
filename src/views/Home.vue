@@ -6,13 +6,34 @@
 </template>
 
 <script>
-// @ is an alias to /src
+
+// import { TweenMax } from 'gsap'
+// import router from '../router'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
     HelloWorld
+  },
+  computed:{
+
+  },
+  created(){
+
+  },
+  mounted(){
+
+  },
+  methods:{
+  
   }
 }
 </script>
+
+<style lang="scss">
+@import '../styles.scss';
+
+
+</style>
+
