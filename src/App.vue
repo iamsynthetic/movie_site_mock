@@ -1,19 +1,23 @@
 <template>
   <div id="app">
+    <div class="header-gradient">
+    </div>
+    <div class="picture-border">
+    </div>
     <div id="nav">
       <a @click="clickNavArrows(true)">UP</a>
       <a @click="clickNavArrows(false)">DOWN</a>
     </div>
-      <div class="columns is-mobile">
+    <div class="columns is-mobile">
         <div class="column">1</div>
         <div class="column">2</div>
         <div class="column">3</div>
         <div class="column">4</div>
-      </div>
-      <svg class="svg-defs">
+    </div>
+    <svg class="svg-defs">
         <defs>
           <clipPath id="clipping1">
-            <rect id="rectangle1" x="0" y="0" width="100vw" height="120vh" />
+            <rect id="rectangle1" x="0" y="0" width="100vw" height="100vh" />
           </clipPath>
           <clipPath id="clipping2">
             <rect id="rectangle2" x="0" y="0" width="100vw" height="100vh" />
@@ -157,6 +161,20 @@ export default {
 <style lang="scss">
 @import './styles.scss';
 
+body {
+    overflow:hidden;
+  //   .picture-border{
+  width:100vw;
+  height:100vh;
+  border:30px solid black;
+  // position:absolute;
+  // float:left;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -165,7 +183,7 @@ export default {
   color: #2c3e50;
 }
 #nav {
-  z-index:1;
+  z-index:10;
   padding: 30px;
   a {
     font-weight: bold;
@@ -193,10 +211,10 @@ export default {
 
 #zp1{
   z-index:-1;
-  top:-10vh;
+  top:0vh;
   opacity:1;
   width:100vw;
-  height:120vh;
+  height:100vh;
   background-color:$danger;
   position:absolute;
   clip-path: url(#clipping1);
@@ -208,71 +226,91 @@ export default {
 }
 #zp2{
   z-index:-2;
-  top:10%;
+  top:0vh;
   opacity:1;
   width:100vw;
-  height:120vh;
+  height:100vh;
   background-color:$twitter;
   position:absolute;
   clip-path: url(#clipping2);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
   background: url(./assets/graffiti_bg.jpg) no-repeat center center fixed; 
-  -webkit-background-size: 120%;
-  -moz-background-size:  120%;
-  -o-background-size:  120%;
-  background-size:  120%;
+  -webkit-background-size: cover;
+  -moz-background-size:  cover;
+  -o-background-size:  cover;
+  background-size:  cover;
 }
 #zp3{
   z-index:-3;
-  top:0%;
+  top:0vh;
   opacity:1;
   width:100vw;
-  height:120vh;
+  height:100vh;
   background-color:$twitter;
   position:absolute;
   clip-path: url(#clipping3);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
   background: url(./assets/camera_bg.jpg) no-repeat center center fixed; 
-  -webkit-background-size: 120%;
-  -moz-background-size:  120%;
-  -o-background-size:  120%;
-  background-size:  120%;
+  -webkit-background-size: cover;
+  -moz-background-size:  cover;
+  -o-background-size:  cover;
+  background-size:  cover;
 }
 #zp4{
   z-index:-4;
-  top:-10%;
+  top:0vh;
   opacity:1;
   width:100vw;
-  height:120vh;
+  height:100vh;
   background-color:$twitter;
   position:absolute;
   clip-path: url(#clipping4);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
   background: url(./assets/purpleface_sized_test.jpg) no-repeat center center fixed; 
-  -webkit-background-size: 120%;
-  -moz-background-size:  120%;
-  -o-background-size:  120%;
-  background-size:  120%;
+  -webkit-background-size: cover;
+  -moz-background-size:  cover;
+  -o-background-size:  cover;
+  background-size:  cover;
 }
 #zp5{
   z-index:-5;
-  top:-10%;
+  top:0vh;
   opacity:1;
   width:100vw;
-  height:120vh;
+  height:100vh;
   background-color:$twitter;
   position:absolute;
   clip-path: url(#clipping5);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
   background: url(./assets/skateboard_test.jpg) no-repeat center center fixed; 
-  -webkit-background-size: 120%;
-  -moz-background-size:  120%;
-  -o-background-size:  120%;
-  background-size:  120%;
+  -webkit-background-size: cover;
+  -moz-background-size:  cover;
+  -o-background-size:  cover;
+  background-size:  cover;
 }
 
 .element {
   clip-path: inset(10px 20px 30px 40px);
   /* Also can take single values to make all sides the same, or 2 values (vert/horz), or 3 values (top/horz/bottom). */
 }
+
+.header-gradient{
+  // width:100%;
+  // height:30px;
+  // background-color:black;
+  // /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+  // background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  // background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  // background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+// .picture-border{
+//   width:100vw;
+//   height:100vh;
+//   border:30px solid black;
+//   position:absolute;
+//   float:left;
+// }
+
 </style>
