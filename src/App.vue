@@ -31,6 +31,12 @@
           <clipPath id="clipping5">
             <rect id="rectangle5" x="0" y="0" width="100vw" height="100vh" />
           </clipPath>
+          <clipPath id="clipping6">
+            <rect id="rectangle6" x="0" y="0" width="100vw" height="100vh" />
+          </clipPath>
+          <clipPath id="clipping7">
+            <rect id="rectangle7" x="0" y="0" width="100vw" height="100vh" />
+          </clipPath>
         </defs>
       </svg>
       <app-home id="zp1"></app-home>
@@ -38,6 +44,8 @@
       <app-page3 id="zp3"></app-page3>
       <app-page4 id="zp4"></app-page4>
       <app-page5 id="zp5"></app-page5>
+      <app-page6 id="zp6"></app-page6>
+      <app-page7 id="zp7"></app-page7>
       <!-- <router-view/> -->
   </div>
 </template>
@@ -51,6 +59,8 @@ import About from './views/About'
 import Page3 from './views/Page3'
 import Page4 from './views/Page4'
 import Page5 from './views/Page5'
+import Page6 from './views/Page6'
+import Page7 from './views/Page7'
 
 export default {
   name:'App',
@@ -66,7 +76,9 @@ export default {
     'appAbout': About,
     'appPage3': Page3,
     'appPage4': Page4,
-    'appPage5': Page5
+    'appPage5': Page5,
+    'appPage6': Page6,
+    'appPage7': Page7
   },
   computed:{
 
@@ -82,6 +94,9 @@ export default {
       console.log('bool is: ' + bool)
       console.log('pagenum is: ' + this.pagenum)
 
+      //need to disable the up and down buttons until the number changes then re-enable them
+
+
       if(bool == true){
         ///perfect
         if(this.pagenum == 1){
@@ -89,10 +104,6 @@ export default {
             TweenMax.to('#zp1', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
             TweenMax.from('#zp2', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
             TweenMax.to('#rectangle1', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle1']})
-          
-          // TweenMax.to('#zp1', 1, {y:'-90%', ease:Expo.easeInOut, force3D:false})
-          // TweenMax.to("#rectangle1", 2.2, {delay:.15, scaleY:0, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle1']});
-          // TweenMax.from('#zp2', 1, {y:'80%', ease:Expo.easeInOut, force3D:false})
         }
         else if(this.pagenum == 2){
             TweenMax.to('#zp2', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
@@ -108,7 +119,17 @@ export default {
             TweenMax.to('#zp4', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
             TweenMax.from('#zp5', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
             TweenMax.to('#rectangle4', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle4']})
-        }  
+        }
+        else if(this.pagenum == 5){
+            TweenMax.to('#zp5', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
+            TweenMax.from('#zp6', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
+            TweenMax.to('#rectangle5', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle5']})
+        }
+        else if(this.pagenum == 6){
+            TweenMax.to('#zp6', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
+            TweenMax.from('#zp7', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
+            TweenMax.to('#rectangle6', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle6']})
+        }
       }
       else if(bool == false){
         ///perfect
@@ -116,11 +137,6 @@ export default {
             TweenMax.from('#zp1', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
             TweenMax.to('#zp2', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
             TweenMax.to('#rectangle1', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle1']})
-
-          // TweenMax.from('#zp1', 1, {y:'-80%', delay:.15, ease:Expo.easeOut, force3D:false})
-          // TweenMax.to("#rectangle1", 2.2, {scaleY: 1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract']});
-          // TweenMax.to('#zp2', 1, {y:'80%', delay:.15, ease:Expo.easeInOut, force3D:false})
-          
         }
         ///need to fix this transition
         else if(this.pagenum == 3){
@@ -137,6 +153,16 @@ export default {
             TweenMax.from('#zp4', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
             TweenMax.to('#zp5', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
             TweenMax.to('#rectangle4', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle4']})
+        }
+        else if(this.pagenum == 6){
+            TweenMax.from('#zp5', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
+            TweenMax.to('#zp6', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
+            TweenMax.to('#rectangle5', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle5']})
+        }
+        else if(this.pagenum == 7){
+            TweenMax.from('#zp6', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
+            TweenMax.to('#zp7', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
+            TweenMax.to('#rectangle6', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle6']})
         }  
       }
     },
@@ -150,8 +176,15 @@ export default {
         this.pagenum = this.pagenum-1
         console.log('pagenum is: ' + this.pagenum)
       }
-      TweenMax.set('#zp2', {css: {y:'0%'}});
+      //TweenMax.set(mask, {scaleY:0});
+
       TweenMax.set('#zp1', {css: {y:'0%'}});
+      TweenMax.set('#zp2', {css: {y:'0%'}});
+      TweenMax.set('#zp3', {css: {y:'0%'}});
+      TweenMax.set('#zp4', {css: {y:'0%'}});
+      TweenMax.set('#zp5', {css: {y:'0%'}});
+      TweenMax.set('#zp6', {css: {y:'0%'}});
+      TweenMax.set('#zp7', {css: {y:'0%'}});
     }
   }
 }
@@ -215,10 +248,10 @@ body {
   opacity:1;
   width:100vw;
   height:100vh;
-  background-color:$danger;
+  // background-color:$twitter;
   position:absolute;
   clip-path: url(#clipping1);
-  background: url(./assets/motorcycle_bg.jpg) no-repeat center center fixed; 
+  background: url(./assets/food/bbq.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;
@@ -230,11 +263,11 @@ body {
   opacity:1;
   width:100vw;
   height:100vh;
-  background-color:$twitter;
+  // background-color:$twitter;
   position:absolute;
   clip-path: url(#clipping2);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
-  background: url(./assets/graffiti_bg.jpg) no-repeat center center fixed; 
+  background: url(./assets/food/cheese.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;
@@ -246,11 +279,11 @@ body {
   opacity:1;
   width:100vw;
   height:100vh;
-  background-color:$twitter;
+  // background-color:$twitter;
   position:absolute;
   clip-path: url(#clipping3);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
-  background: url(./assets/camera_bg.jpg) no-repeat center center fixed; 
+  background: url(./assets/food/dessert.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;
@@ -262,11 +295,11 @@ body {
   opacity:1;
   width:100vw;
   height:100vh;
-  background-color:$twitter;
+  // background-color:$twitter;
   position:absolute;
   clip-path: url(#clipping4);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
-  background: url(./assets/purpleface_sized_test.jpg) no-repeat center center fixed; 
+  background: url(./assets/food/fries.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;
@@ -278,11 +311,43 @@ body {
   opacity:1;
   width:100vw;
   height:100vh;
-  background-color:$twitter;
+  // background-color:$twitter;
   position:absolute;
   clip-path: url(#clipping5);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
-  background: url(./assets/skateboard_test.jpg) no-repeat center center fixed; 
+  background: url(./assets/food/grapes.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size:  cover;
+  -o-background-size:  cover;
+  background-size:  cover;
+}
+#zp6{
+  z-index:-6;
+  top:0vh;
+  opacity:1;
+  width:100vw;
+  height:100vh;
+  // background-color:$twitter;
+  position:absolute;
+  clip-path: url(#clipping6);
+  //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
+  background: url(./assets/food/spoon_spice.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size:  cover;
+  -o-background-size:  cover;
+  background-size:  cover;
+}
+#zp7{
+  z-index:-7;
+  top:0vh;
+  opacity:1;
+  width:100vw;
+  height:100vh;
+  // background-color:$twitter;
+  position:absolute;
+  clip-path: url(#clipping7);
+  //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
+  background: url(./assets/food/pizza.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;
