@@ -2,8 +2,8 @@
   <div id="app">
     <div class="header-gradient">
     </div>
-    <div class="picture-border">
-    </div>
+    <!--<div class="picture-border">
+    </div> -->
     <div id="nav">
       <a @click="clickNavArrows(true)">UP</a>
       <a @click="clickNavArrows(false)">DOWN</a>
@@ -47,6 +47,8 @@
       <app-page6 id="zp6"></app-page6>
       <app-page7 id="zp7"></app-page7>
       <!-- <router-view/> -->
+      <div class="footer-gradient">
+    </div>
   </div>
 </template>
 
@@ -199,7 +201,9 @@ body {
   //   .picture-border{
   width:100vw;
   height:100vh;
-  border:30px solid black;
+  // border:30px solid black;
+  border-top:20px solid black;
+  border-bottom:20px solid black;
   // position:absolute;
   // float:left;
 }
@@ -217,7 +221,12 @@ body {
 }
 #nav {
   z-index:10;
-  padding: 30px;
+  float:left;
+  position:absolute;
+  margin:auto;
+  bottom:0;
+  margin-bottom:50px;
+  width:100%;
   a {
     font-weight: bold;
     color: #2c3e50;
@@ -360,14 +369,32 @@ body {
 }
 
 .header-gradient{
-  // width:100%;
-  // height:30px;
-  // background-color:black;
-  // /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
-  // background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-  // background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  // background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+  z-index:1;
+  float:left;
+  width:100%;
+  height:70px;
+  top:20px;
+  position:fixed;
+  background-color:black;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+  background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+.footer-gradient{
+  float:left;
+  width:100%;
+  height:70px;
+  position: fixed;
+  bottom:20px;
+  background-color:black;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100 */
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 10  0%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 
 // .picture-border{
