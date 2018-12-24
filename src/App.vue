@@ -5,8 +5,20 @@
     <!--<div class="picture-border">
     </div> -->
     <div id="nav">
-      <a @click="clickNavArrows(true)">UP</a>
-      <a @click="clickNavArrows(false)">DOWN</a>
+      <!-- <div class="block">
+            <b-icon icon="account" size="is-small"></b-icon>
+      </div> -->
+      <ul>
+        <li>
+          <a @click="clickNavArrows(false)"><b-icon class="uparrow" icon="chevron-up" size="is-medium" type="is-warning"></b-icon></a>
+        </li>
+        <li>
+          <p class="nav-title">scroll to navigate</p>
+        </li>
+        <li>
+          <a @click="clickNavArrows(true)"><b-icon icon="chevron-down" size="is-medium" type="is-warning"></b-icon></a>
+        </li>
+      </ul>
     </div>
     <div class="columns is-mobile">
         <div class="column">1</div>
@@ -234,6 +246,12 @@ body {
       color: #42b983;
     }
   }
+}
+.uparrow{
+  padding:0px;
+}
+.nav-title{
+  color:$warning;
 }
 .container{
   position:relative;
