@@ -82,7 +82,8 @@ export default {
     return {
       pagenum: 1,
       first: 0,
-      last: 5
+      last: 5,
+      isbtndisabled:false
     }
   },
   components:{
@@ -95,7 +96,7 @@ export default {
     'appPage7': Page7
   },
   computed:{
-
+   
   },
   created(){
 
@@ -107,77 +108,109 @@ export default {
     clickNavArrows(bool=false){
       console.log('bool is: ' + bool)
       console.log('pagenum is: ' + this.pagenum)
-
-      //need to disable the up and down buttons until the number changes then re-enable them
-
+      
+      //working perfect.
 
       if(bool == true){
-        ///perfect
-        if(this.pagenum == 1){
+        
+        console.log('down arrow')
+        if(this.isbtndisabled == false){
           
-            TweenMax.to('#zp1', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.from('#zp2', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle1', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle1']})
-        }
-        else if(this.pagenum == 2){
-            TweenMax.to('#zp2', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.from('#zp3', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle2', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle2']})
-        }  
-        else if(this.pagenum == 3){
-            TweenMax.to('#zp3', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.from('#zp4', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle3', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle3']})
-        }  
-        else if(this.pagenum == 4){
-            TweenMax.to('#zp4', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.from('#zp5', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle4', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle4']})
-        }
-        else if(this.pagenum == 5){
-            TweenMax.to('#zp5', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.from('#zp6', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle5', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle5']})
-        }
-        else if(this.pagenum == 6){
-            TweenMax.to('#zp6', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.from('#zp7', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle6', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle6']})
+          this.isbtndisabled = true
+          
+           if(this.pagenum == 7){
+             console.log('its 7')
+             this.isbtndisabled = false
+          }
+          else
+          {
+            TweenMax.to('#zp'+String(this.pagenum), 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
+            TweenMax.from('#zp'+String(this.pagenum+1), 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
+            TweenMax.to('#rectangle'+String(this.pagenum), 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle'+String(this.pagenum)]})
+          }
+          // ///perfect
+          // if(this.pagenum == 1){
+          //     TweenMax.to('#zp1', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.from('#zp2', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle1', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle1']})
+          // }
+          // else if(this.pagenum == 2){
+          //     TweenMax.to('#zp2', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.from('#zp3', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle2', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle2']})
+          // }  
+          // else if(this.pagenum == 3){
+          //     TweenMax.to('#zp3', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.from('#zp4', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle3', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle3']})
+          // }  
+          // else if(this.pagenum == 4){
+          //     TweenMax.to('#zp4', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.from('#zp5', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle4', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle4']})
+          // }
+          // else if(this.pagenum == 5){
+          //     TweenMax.to('#zp5', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.from('#zp6', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle5', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle5']})
+          // }
+          // else if(this.pagenum == 6){
+          //     TweenMax.to('#zp6', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.from('#zp7', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle6', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle6']})
+          // }
         }
       }
       else if(bool == false){
-        ///perfect
-        if(this.pagenum == 2){
-            TweenMax.from('#zp1', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#zp2', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle1', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle1']})
+
+        if(this.isbtndisabled == false){
+          
+          this.isbtndisabled = true
+          console.log('up arrow')
+
+          if(this.pagenum == 1){
+            console.log('its 1')
+            this.isbtndisabled = false
+          }
+          else
+          {
+            TweenMax.from('#zp'+String(this.pagenum-1), 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
+            TweenMax.to('#zp'+String(this.pagenum), 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
+            TweenMax.to('#rectangle'+String(this.pagenum-1), 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle'+String(this.pagenum-1)]})
+          }
+          // ///perfect
+          // if(this.pagenum == 2){
+          //     TweenMax.from('#zp1', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#zp2', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle1', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle1']})
+          // }
+          // ///need to fix this transition
+          // else if(this.pagenum == 3){
+          //     TweenMax.from('#zp2', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#zp3', 1, {y:'40%',delay:.1, ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle2', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle2']})
+          // }  
+          // else if(this.pagenum == 4){
+          //     TweenMax.from('#zp3', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#zp4', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle3', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle3']})
+          // }  
+          // else if(this.pagenum == 5){
+          //     TweenMax.from('#zp4', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#zp5', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle4', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle4']})
+          // }
+          // else if(this.pagenum == 6){
+          //     TweenMax.from('#zp5', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#zp6', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle5', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle5']})
+          // }
+          // else if(this.pagenum == 7){
+          //     TweenMax.from('#zp6', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#zp7', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
+          //     TweenMax.to('#rectangle6', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle6']})
+          // } 
         }
-        ///need to fix this transition
-        else if(this.pagenum == 3){
-            TweenMax.from('#zp2', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#zp3', 1, {y:'40%',delay:.1, ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle2', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle2']})
-        }  
-        else if(this.pagenum == 4){
-            TweenMax.from('#zp3', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#zp4', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle3', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle3']})
-        }  
-        else if(this.pagenum == 5){
-            TweenMax.from('#zp4', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#zp5', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle4', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle4']})
-        }
-        else if(this.pagenum == 6){
-            TweenMax.from('#zp5', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#zp6', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle5', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle5']})
-        }
-        else if(this.pagenum == 7){
-            TweenMax.from('#zp6', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#zp7', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
-            TweenMax.to('#rectangle6', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle6']})
-        }  
       }
     },
     changepage:function(amount, mask){
@@ -199,6 +232,7 @@ export default {
       TweenMax.set('#zp5', {css: {y:'0%'}});
       TweenMax.set('#zp6', {css: {y:'0%'}});
       TweenMax.set('#zp7', {css: {y:'0%'}});
+      this.isbtndisabled = false
     }
   }
 }
