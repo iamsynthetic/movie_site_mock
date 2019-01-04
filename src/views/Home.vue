@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HomeGrid msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
@@ -9,12 +8,12 @@
 
 // import { TweenMax } from 'gsap'
 // import router from '../router'
-import HelloWorld from '@/components/HelloWorld.vue'
+import HomeGrid from '@/components/HomeGrid.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    HomeGrid
   },
   computed:{
 
@@ -33,7 +32,10 @@ export default {
 
 <style lang="scss">
 @import '../styles.scss';
-
-
+.home{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>
 

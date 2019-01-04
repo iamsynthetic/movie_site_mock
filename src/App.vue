@@ -10,13 +10,13 @@
       </div> -->
       <ul>
         <li>
-          <a @click="clickNavArrows(false)"><b-icon class="uparrow" icon="chevron-up" size="is-medium" type="is-warning"></b-icon></a>
+          <a @mouseover="mouseoverNavArrows()" @mouseout="mouseoutNavArrows()" @click="clickNavArrows(false)"><b-icon class="uparrow" icon="chevron-up" size="is-medium"></b-icon></a>
         </li>
         <li>
           <p class="nav-title">scroll to navigate</p>
         </li>
         <li>
-          <a @click="clickNavArrows(true)"><b-icon icon="chevron-down" size="is-medium" type="is-warning"></b-icon></a>
+          <a @mouseover="mouseoverNavArrows()" @mouseout="mouseoutNavArrows()" @click="clickNavArrows(true)"><b-icon class="downarrow" icon="chevron-down" size="is-medium"></b-icon></a>
         </li>
       </ul>
     </div>
@@ -96,15 +96,34 @@ export default {
     'appPage7': Page7
   },
   computed:{
-   
   },
   created(){
-
+    //need var self = this because 'this' is binding inside the callback which is not pointing to the vue instance
+    var self = this;
+    window.addEventListener("wheel", function(e) {
+        var dir = Math.sign(e.deltaY);
+        console.log(dir);
+        if(dir == 1){
+          //down
+          self.clickNavArrows(true)
+        }
+        else{
+          //up
+          self.clickNavArrows(false)
+        }
+    });
   },
   mounted(){
 
   },
   methods:{
+    mouseoverNavArrows(){
+      console.log("mouseover nav arrows")
+      //TweenMax.to('.uparrow', .5, {css:{color:"#ffffff"}, ease:Back.easeOut})
+    },
+    mouseoutNavArrows(){
+      console.log("mouseout nav arrows")
+    },
     clickNavArrows(bool=false){
       console.log('bool is: ' + bool)
       console.log('pagenum is: ' + this.pagenum)
@@ -113,7 +132,7 @@ export default {
 
       if(bool == true){
         
-        console.log('down arrow')
+        TweenMax.to('.downarrow', .5, {css:{color:"#999999"}, ease:Back.easeOut})
         if(this.isbtndisabled == false){
           
           this.isbtndisabled = true
@@ -162,6 +181,8 @@ export default {
         }
       }
       else if(bool == false){
+        
+        TweenMax.to('.uparrow', .5, {css:{color:"#999999"}, ease:Back.easeOut})
 
         if(this.isbtndisabled == false){
           
@@ -223,8 +244,9 @@ export default {
         this.pagenum = this.pagenum-1
         console.log('pagenum is: ' + this.pagenum)
       }
-      //TweenMax.set(mask, {scaleY:0});
-
+      
+      TweenMax.to('.uparrow', .5, {css:{color:"#ffffff"}, ease:Back.easeOut})
+      TweenMax.to('.downarrow', .5, {css:{color:"#ffffff"}, ease:Back.easeOut})
       TweenMax.set('#zp1', {css: {y:'0%'}});
       TweenMax.set('#zp2', {css: {y:'0%'}});
       TweenMax.set('#zp3', {css: {y:'0%'}});
@@ -275,13 +297,17 @@ body {
   width:100%;
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #ffffff;
     &.router-link-exact-active {
       color: #42b983;
     }
   }
 }
+
 .uparrow{
+  padding:0px;
+}
+.downarrow{
   padding:0px;
 }
 .nav-title{
