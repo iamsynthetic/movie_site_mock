@@ -1,6 +1,9 @@
 // Import Bulma's core
 @import "~bulma/sass/utilities/_all";
 
+//import font styles
+@import url('https://fonts.googleapis.com/css?family=Anton|Cutive+Mono|Fredericka+the+Great');
+
 // Set your colors
 $primary: #8c67ef;
 $primary-invert: findColorInvert($primary);
