@@ -34,8 +34,11 @@
           <clipPath id="clipping2">
             <rect id="rectangle2" x="0" y="0" width="100vw" height="100vh" />
           </clipPath>
-          <clipPath id="clipping3">
-            <rect id="rectangle3" x="0" y="0" width="100vw" height="100vh" />
+          <clipPath id="clipping3a">
+            <rect id="rectangle3" x="0" y="0" width="50vw" height="100vh" />
+          </clipPath>
+          <clipPath id="clipping3b">
+            <rect id="rectangle3" x="0" y="0" width="50vw" height="100vh" />
           </clipPath>
           <clipPath id="clipping4">
             <rect id="rectangle4" x="0" y="0" width="100vw" height="100vh" />
@@ -43,8 +46,14 @@
           <clipPath id="clipping5">
             <rect id="rectangle5" x="0" y="0" width="100vw" height="100vh" />
           </clipPath>
-          <clipPath id="clipping6">
-            <rect id="rectangle6" x="0" y="0" width="100vw" height="100vh" />
+          <clipPath id="clipping6a">
+            <rect id="rectangle6" x="0" y="0" width="33vw" height="100vh" />
+          </clipPath>
+          <clipPath id="clipping6b">
+            <rect id="rectangle6" x="0" y="0" width="34vw" height="100vh" />
+          </clipPath>
+          <clipPath id="clipping6c">
+            <rect id="rectangle6" x="0" y="0" width="33vw" height="100vh" />
           </clipPath>
           <clipPath id="clipping7">
             <rect id="rectangle7" x="0" y="0" width="100vw" height="100vh" />
@@ -53,10 +62,13 @@
       </svg>
       <app-home id="zp1"></app-home>
       <app-about id="zp2"></app-about>
-      <app-page3 id="zp3"></app-page3>
+      <app-page3 id="zp3" class="zp3a"></app-page3>
+      <app-page3 id="zp3" class="zp3b"></app-page3>
       <app-page4 id="zp4"></app-page4>
       <app-page5 id="zp5"></app-page5>
-      <app-page6 id="zp6"></app-page6>
+      <app-page6 id="zp6" class="zp6a"></app-page6>
+      <app-page6 id="zp6" class="zp6b"></app-page6>
+      <app-page6 id="zp6" class="zp6c"></app-page6>
       <app-page7 id="zp7"></app-page7>
       <!-- <router-view/> -->
       <div class="footer-gradient">
@@ -114,7 +126,7 @@ export default {
     });
   },
   mounted(){
-
+    TweenMax.from('#zp1', 1, {css:{color:"#999999"}, ease:Quad.easeIn})
   },
   methods:{
     mouseoverNavArrows(){
@@ -338,7 +350,7 @@ body {
   // background-color:$twitter;
   position:absolute;
   clip-path: url(#clipping1);
-  background: url(./assets/food/bbq.jpg) no-repeat center center fixed; 
+  background: url(./assets/food_edit_images/bbq_edit.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;
@@ -354,30 +366,47 @@ body {
   position:absolute;
   clip-path: url(#clipping2);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
-  background: url(./assets/food/cheese.jpg) no-repeat center center fixed; 
+  background: url(./assets/food_edit_images/dessert_edit.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;
   background-size:  cover;
 }
-#zp3{
+.zp3a{
   z-index:-3;
   top:0vh;
   opacity:1;
-  width:100vw;
+  width:50vw;
   height:100vh;
   // background-color:$twitter;
   position:absolute;
-  clip-path: url(#clipping3);
+  clip-path: url(#clipping3a);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
-  background: url(./assets/food/dessert.jpg) no-repeat center center fixed; 
+  background: url(./assets/food_edit_images/half_img1.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size:  cover;
+  -o-background-size:  cover;
+  background-size:  cover;
+}
+.zp3b{
+  z-index:-4;
+  top:0vh;
+  left:50vw;
+  opacity:1;
+  width:50vw;
+  height:100vh;
+  // background-color:$twitter;
+  position:absolute;
+  clip-path: url(#clipping3b);
+  //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
+  background: url(./assets/food_edit_images/half_img2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;
   background-size:  cover;
 }
 #zp4{
-  z-index:-4;
+  z-index:-5;
   top:0vh;
   opacity:1;
   width:100vw;
@@ -386,14 +415,14 @@ body {
   position:absolute;
   clip-path: url(#clipping4);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
-  background: url(./assets/food/fries.jpg) no-repeat center center fixed; 
+  background: url(./assets/food_edit_images/burger_edit.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;
   background-size:  cover;
 }
 #zp5{
-  z-index:-5;
+  z-index:-6;
   top:0vh;
   opacity:1;
   width:100vw;
@@ -402,30 +431,64 @@ body {
   position:absolute;
   clip-path: url(#clipping5);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
-  background: url(./assets/food/grapes.jpg) no-repeat center center fixed; 
+  background: url(./assets/food_edit_images/cookies_edit.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;
   background-size:  cover;
 }
-#zp6{
-  z-index:-6;
+.zp6a{
+  z-index:-7;
   top:0vh;
   opacity:1;
-  width:100vw;
+  width:33vw;
   height:100vh;
   // background-color:$twitter;
   position:absolute;
-  clip-path: url(#clipping6);
+  clip-path: url(#clipping6a);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
-  background: url(./assets/food/spoon_spice.jpg) no-repeat center center fixed; 
+  background: url(./assets/food_edit_images/thirds_img1.jpg) no-repeat; 
+  -webkit-background-size: cover;
+  -moz-background-size:  cover;
+  -o-background-size:  cover;
+  background-size:  cover;
+}
+.zp6b{
+  z-index:-8;
+  top:0vh;
+  left:33vw;
+  opacity:1;
+  width:34vw;
+  height:100vh;
+  // background-color:$twitter;
+  position:absolute;
+  clip-path: url(#clipping6b);
+  //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
+  background: url(./assets/food_edit_images/thirds_img2.jpg) no-repeat; 
+  -webkit-background-size: cover;
+  -moz-background-size:  cover;
+  -o-background-size:  cover;
+  background-size:  cover;
+}
+.zp6c{
+  z-index:-9;
+  top:0vh;
+  left:67vw;
+  opacity:1;
+  width:33vw;
+  height:100vh;
+  // background-color:$twitter;
+  position:absolute;
+  clip-path: url(#clipping6c);
+  //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
+  background: url(./assets/food_edit_images/thirds_img3.jpg) no-repeat; 
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;
   background-size:  cover;
 }
 #zp7{
-  z-index:-7;
+  z-index:-10;
   top:0vh;
   opacity:1;
   width:100vw;
@@ -434,7 +497,7 @@ body {
   position:absolute;
   clip-path: url(#clipping7);
   //clip: rect(0px, 100vw, 100vw, 0px); //top (start pos) right (left to right) bottom (top to the bottom) left (start pos)
-  background: url(./assets/food/pizza.jpg) no-repeat center center fixed; 
+  background: url(./assets/food_edit_images/bread_edit.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size:  cover;
   -o-background-size:  cover;

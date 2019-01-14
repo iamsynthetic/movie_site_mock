@@ -6,8 +6,17 @@
         <div id="item-3" class="item">3</div>
         <div id="item-4" class="item">4</div>
         <div id="item-5" class="item">
-            <p class="titletxt">Can You Stomach It</p>
-            <p class="bodytxt">DO YOU HAVE THE GUTS TO EAT OUR FOOD?</p>
+            <ul>
+                <li><span id="item-5-txt-1"><p id="title1" class="titletxt">Chase the</p></span></li>
+                <li><span id="item-5-txt-1b"><p id="title2" class="titletxt">Flavors</p></span></li>
+            </ul>
+            <ul>
+                <li><span id="item-5-txt-2"><p id="title3" class="bodytxt">WHERE FOOD SPEAKS</p></span></li>
+                <li><span id="item-5-txt-2b"><p id="title4" class="bodytxt">WITH YOUR PALATE</p></span></li>
+            </ul>
+            <!-- <div id="item-5-txt-2">
+                <p  id="title3" class="bodytxt">WHERE FOOD SPEAKS WITH YOUR PALATE</p>
+            </div> -->
         </div>
         <div id="item-6" class="item">6</div>
         <div id="item-7" class="item">7</div>
@@ -30,10 +39,27 @@
 </template>
 
 <script>
+
+import { TweenMax } from 'gsap'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  computed:{
+
+  },
+  created(){
+  },
+  mounted(){
+    TweenMax.from('#title1', 3.4, {y:400, delay:.6, ease:Power3.easeInOut})
+    TweenMax.from('#title2', 3, {y:400, delay:1, ease:Power3.easeInOut})
+    TweenMax.from('#title3', 3.2, {x:400, delay:1.4, ease:Power3.easeInOut})
+    TweenMax.from('#title4', 3.2, {x:-450, delay:1.4, ease:Power3.easeInOut})
+  },
+  methods:{
+  
   }
 }
 </script>
@@ -209,39 +235,86 @@ a {
     //     background: #d85e49;
     // }
 
+    @media only screen and (min-width: 375px) {
+        
+        #item-5{
+            // grid-column: 1 / span 3;
+            // grid-row: 2 / span 3;
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+        }
+
+        #item-5-txt-1, #item-5-txt-1b, #item-5-txt-2, #item-5-txt-2b{
+            -webkit-clip-path: inset(0 0 0 0);
+            clip-path: inset(0 0 0 0);
+            display:inline-block;
+        }
+        // #item-5-txt-2{
+        //     -webkit-clip-path: inset(0 0 0 0);
+        //     clip-path: inset(0 0 0 0);
+        //     display:inline-block;
+        // }
+        // #item-5-txt-2b{
+        //     -webkit-clip-path: inset(0 0 0 0);
+        //     clip-path: inset(0 0 0 0);
+        //     display:inline-block;
+        // }
+
+        #item-5 p{
+            text-align:center;
+        }
+        #item-5 ul{
+            text-align:center;
+        }
+
+        #item-5 ul li {
+            margin:0;
+        }
+
+        #title1{
+            margin:0;
+        }
+
+        #title2{
+            margin-left:1rem;
+        }
+
+        #title3{
+            margin:0;
+        }
+
+        #title4{
+            margin-left:1rem;
+        }
+
+         #item-5 .titletxt{
+            font-family: 'Fredericka the Great', cursive;
+            font-size:40px;
+            line-height:40px;
+            color:white;
+        }
+
+        #item-5 .bodytxt{
+            font-family: 'Cutive Mono', monospace;
+            //font-family: 'Anton', sans-serif;
+            font-size:16px;
+            line-height:30px;
+            color:white;
+        }
+    }
+
     @media only screen and (min-width: 768px) {
    
         .grid-1 {
             display: grid;
-            //height:100%;
             margin:0 auto;
-            //text-align:left;
-            //background-color:blue;
-            // grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            // grid-template-rows: repeat(3, 33.33%);
             grid-template-columns: repeat(4, [col] 25%);
             grid-template-rows: repeat(5, [row] 20%);
         }
 
-        #item-1 {
-            //grid-column: 1 / span  1;
-            //grid-row: row;
-            // display: flex;
-            // flex-direction: column;
-        }
-        
-        #item-2{
-            //grid-column: 1 / span  1;
-            //grid-row: row ;
-        }
-
-        #item-3{
-           //grid-column: 1 / span  1;
-            //grid-row: row ;
-        }
-
         #item-5{
-            grid-column: 1 / span 2;
+            grid-column: 1 / span 3;
             grid-row: 2 / span 3;
             display: flex;
             flex-direction: column;
@@ -251,25 +324,44 @@ a {
         #item-5 p{
             text-align:left;
         }
+        #item-5 ul{
+            text-align:left;
+        }
+
+        #title2{
+            margin-left:2rem;
+        }
+
 
         #item-5 .titletxt{
             font-family: 'Fredericka the Great', cursive;
-            font-size:120px;
+            font-size:60px;
+            line-height:80px;
+            color:white;
+        }
+
+        #item-5 .bodytxt{
+            font-family: 'Cutive Mono', monospace;
+            font-size:26px;
+            line-height:30px;
+            color:white;
+        }
+    }
+
+    @media only screen and (min-width: 1050px) {
+         #item-5 .titletxt{
+            font-family: 'Fredericka the Great', cursive;
+            font-size:80px;
             line-height:110px;
             color:white;
-            margin-bottom:20px;
-            width:75%;
-            background-color:black;
         }
 
         #item-5 .bodytxt{
             font-family: 'Cutive Mono', monospace;
             //font-family: 'Anton', sans-serif;
-            font-size:34px;
+            font-size:36px;
             line-height:30px;
             color:white;
-            width:90%;
-            background-color:black;
         }
     }
 }
