@@ -20,12 +20,12 @@
         </li>
       </ul>
     </div>
-    <div class="columns is-mobile">
+    <!-- <div class="columns is-mobile">
         <div class="column">1</div>
         <div class="column">2</div>
         <div class="column">3</div>
         <div class="column">4</div>
-    </div>
+    </div> -->
     <svg class="svg-defs">
         <defs>
           <clipPath id="clipping1">
@@ -80,6 +80,7 @@
 
 import { TweenMax } from 'gsap'
 //import router from './router'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 import Home from './views/Home'
 import About from './views/About'
 import Page3 from './views/Page3'
@@ -108,6 +109,7 @@ export default {
     'appPage7': Page7
   },
   computed:{
+    ...mapGetters(['checkpagenumber'])
   },
   created(){
     //need var self = this because 'this' is binding inside the callback which is not pointing to the vue instance
@@ -126,9 +128,15 @@ export default {
     });
   },
   mounted(){
-    TweenMax.from('#zp1', 1, {css:{color:"#999999"}, ease:Quad.easeIn})
+    
   },
   methods:{
+    ...mapMutations(['CHANGE_PAGENUMBER']),
+    ...mapActions(['changePagenumber']),
+
+    changethepagenumber(id){
+      this.changePagenumber(id)
+    },
     mouseoverNavArrows(){
       console.log("mouseover nav arrows")
       //TweenMax.to('.uparrow', .5, {css:{color:"#ffffff"}, ease:Back.easeOut})
@@ -140,6 +148,15 @@ export default {
       console.log('bool is: ' + bool)
       console.log('pagenum is: ' + this.pagenum)
       
+      //
+      //
+      //
+      //
+      //////
+
+      // need to figure out how to set page number sooner. taking too long for each title to animate in.
+      
+      //////
       //working perfect.
 
       if(bool == true){
@@ -159,37 +176,6 @@ export default {
             TweenMax.from('#zp'+String(this.pagenum+1), 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
             TweenMax.to('#rectangle'+String(this.pagenum), 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle'+String(this.pagenum)]})
           }
-          // ///perfect
-          // if(this.pagenum == 1){
-          //     TweenMax.to('#zp1', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.from('#zp2', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle1', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle1']})
-          // }
-          // else if(this.pagenum == 2){
-          //     TweenMax.to('#zp2', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.from('#zp3', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle2', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle2']})
-          // }  
-          // else if(this.pagenum == 3){
-          //     TweenMax.to('#zp3', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.from('#zp4', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle3', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle3']})
-          // }  
-          // else if(this.pagenum == 4){
-          //     TweenMax.to('#zp4', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.from('#zp5', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle4', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle4']})
-          // }
-          // else if(this.pagenum == 5){
-          //     TweenMax.to('#zp5', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.from('#zp6', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle5', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle5']})
-          // }
-          // else if(this.pagenum == 6){
-          //     TweenMax.to('#zp6', 1, {y:'-50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.from('#zp7', 1, {y:'50%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle6', 1.5, {delay:.5, scaleY:0, ease:Expo.easeOut, force3D:false, onComplete:this.changepage, onCompleteParams:['add', '#rectangle6']})
-          // }
         }
       }
       else if(bool == false){
@@ -211,38 +197,6 @@ export default {
             TweenMax.to('#zp'+String(this.pagenum), 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
             TweenMax.to('#rectangle'+String(this.pagenum-1), 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle'+String(this.pagenum-1)]})
           }
-          // ///perfect
-          // if(this.pagenum == 2){
-          //     TweenMax.from('#zp1', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#zp2', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle1', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle1']})
-          // }
-          // ///need to fix this transition
-          // else if(this.pagenum == 3){
-          //     TweenMax.from('#zp2', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#zp3', 1, {y:'40%',delay:.1, ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle2', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle2']})
-          // }  
-          // else if(this.pagenum == 4){
-          //     TweenMax.from('#zp3', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#zp4', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle3', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle3']})
-          // }  
-          // else if(this.pagenum == 5){
-          //     TweenMax.from('#zp4', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#zp5', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle4', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle4']})
-          // }
-          // else if(this.pagenum == 6){
-          //     TweenMax.from('#zp5', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#zp6', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle5', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle5']})
-          // }
-          // else if(this.pagenum == 7){
-          //     TweenMax.from('#zp6', 1, {y:'-40%', ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#zp7', 1, {y:'40%', delay:.1, ease:Expo.easeInOut, force3D:false})
-          //     TweenMax.to('#rectangle6', 1, {scaleY:1, ease:Expo.easeInOut, force3D:false, onComplete:this.changepage, onCompleteParams:['subtract', '#rectangle6']})
-          // } 
         }
       }
     },
@@ -256,7 +210,7 @@ export default {
         this.pagenum = this.pagenum-1
         console.log('pagenum is: ' + this.pagenum)
       }
-      
+
       TweenMax.to('.uparrow', .5, {css:{color:"#ffffff"}, ease:Back.easeOut})
       TweenMax.to('.downarrow', .5, {css:{color:"#ffffff"}, ease:Back.easeOut})
       TweenMax.set('#zp1', {css: {y:'0%'}});

@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <AboutGrid/>
   </div>
 </template>
 
@@ -8,6 +8,7 @@
 
 // import { TweenMax } from 'gsap'
 // import router from '../router'
+import AboutGrid from '@/components/AboutGrid.vue'
 
 export default {
 name:'About',
@@ -16,7 +17,7 @@ name:'About',
     }
   },
   components:{
-   
+   AboutGrid
   },
   computed:{
 
@@ -35,5 +36,9 @@ name:'About',
 
 <style lang="scss">
 @import '../styles.scss';
-
+.about{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>

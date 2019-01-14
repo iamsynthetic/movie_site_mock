@@ -1,10 +1,10 @@
 <template>
   <div class="homegrid">
     <section class="grid-1">
-        <div id="item-1" class="item">1</div>
-        <div id="item-2" class="item">2</div>
-        <div id="item-3" class="item">3</div>
-        <div id="item-4" class="item">4</div>
+        <div id="item-1" class="item"></div>
+        <div id="item-2" class="item"></div>
+        <div id="item-3" class="item"></div>
+        <div id="item-4" class="item"></div>
         <div id="item-5" class="item">
             <ul>
                 <li><span id="item-5-txt-1"><p id="title1" class="titletxt">Chase the</p></span></li>
@@ -14,11 +14,8 @@
                 <li><span id="item-5-txt-2"><p id="title3" class="bodytxt">WHERE FOOD SPEAKS</p></span></li>
                 <li><span id="item-5-txt-2b"><p id="title4" class="bodytxt">WITH YOUR PALATE</p></span></li>
             </ul>
-            <!-- <div id="item-5-txt-2">
-                <p  id="title3" class="bodytxt">WHERE FOOD SPEAKS WITH YOUR PALATE</p>
-            </div> -->
         </div>
-        <div id="item-6" class="item">6</div>
+        <!-- <div id="item-6" class="item">6</div>
         <div id="item-7" class="item">7</div>
         <div id="item-8" class="item">8</div>
         <div id="item-9" class="item">9</div>
@@ -32,7 +29,7 @@
         <div id="item-17" class="item">17</div>
         <div id="item-18" class="item">18</div>
         <div id="item-19" class="item">19</div>
-        <div id="item-20" class="item">20</div>
+        <div id="item-20" class="item">20</div> -->
         
     </section>
   </div>
@@ -43,7 +40,7 @@
 import { TweenMax } from 'gsap'
 
 export default {
-  name: 'HelloWorld',
+  name: 'HomeGrid',
   props: {
     msg: String
   },
@@ -64,7 +61,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 h3 {
   margin: 40px 0 0;
@@ -81,67 +77,10 @@ a {
   color: #42b983;
 }
 
-
-// .wrapper {
-//         display: grid;
-//     grid-gap: 10px;
-//         grid-template-columns: repeat(5, [col] 100px ) ;
-//         grid-template-rows: repeat(3, [row] auto  );
-//         background-color: #fff;
-//         color: #444;
-//     }
-
-//     .box {
-//         background-color: #444;
-//         color: #fff;
-//         border-radius: 5px;
-//         padding: 20px;
-//         font-size: 150%;
-//         z-index:10;
-
-//     }
-
-//     .a {
-//         grid-column: col / span  2;
-//         grid-row: row ;
-//     }
-//     .b {
-//         grid-column: col 3 / span  3 ;
-//         grid-row: row ;
-//     }
-//     .c {
-//         grid-column: col ;
-//         grid-row: row 2 ;
-//     }
-//     .d {
-//         grid-column: col 2 / span  3 ;
-//         grid-row: row 2 ;
-//     }
-
-//     .e {
-//         grid-column: col / span  5;
-//         grid-row: row 3;
-//     }
-
-//     .f {
-//         grid-column: col 3 / span 3;
-//         grid-row: row 2  ;
-//         background-color: rgba(49,121,207, 0.5);
-//         z-index: 20;
-//     }
-
-
-
 .homegrid{
     width:90vw;
     height:90vh;
-    //margin:0 auto;
-    //background-color:red;
     margin:auto;
-    // padding-top:50px;
-    // padding-left:50px;
-    // padding-right:50px;
-    // padding-bottom:50px;
 }
 
 @supports (display: grid) {
@@ -174,72 +113,9 @@ a {
     .item{
     }
 
-    // #item-1 {
-    //     background: #b03532;
-    // }
-    // #item-2 {
-    //     background: #8c67ef;
-    // }
-    // #item-3 {
-    //     background: #30997a;
-    // }
-    // #item-4 {
-    //     background: #6a478f;
-    // }
-    // #item-5 {
-    //     background: #000000;
-    // }
-    // #item-6 {
-    //     background: #3d8bb1;
-    // }
-    // #item-7 {
-    //     background: #e03f3f;
-    // }
-    // #item-8 {
-    //     background: #59a627;
-    // }
-    // #item-9 {
-    //     background: #4464a1;
-    // }
-    // #item-10 {
-    //     background: #d85e49;
-    // }
-    // #item-11 {
-    //     background: #b03532;
-    // }
-    // #item-12 {
-    //     background: #8c67ef;
-    // }
-    // #item-13 {
-    //     background: #30997a;
-    // }
-    // #item-14 {
-    //     background: #6a478f;
-    // }
-    // #item-15 {
-    //     background: #da6f2b;
-    // }
-    // #item-16 {
-    //     background: #3d8bb1;
-    // }
-    // #item-17 {
-    //     background: #e03f3f;
-    // }
-    // #item-18 {
-    //     background: #59a627;
-    // }
-    // #item-19 {
-    //     background: #4464a1;
-    // }
-    // #item-20 {
-    //     background: #d85e49;
-    // }
-
     @media only screen and (min-width: 375px) {
         
         #item-5{
-            // grid-column: 1 / span 3;
-            // grid-row: 2 / span 3;
             display: flex;
             flex-direction: column;
             justify-content:center;
@@ -250,16 +126,6 @@ a {
             clip-path: inset(0 0 0 0);
             display:inline-block;
         }
-        // #item-5-txt-2{
-        //     -webkit-clip-path: inset(0 0 0 0);
-        //     clip-path: inset(0 0 0 0);
-        //     display:inline-block;
-        // }
-        // #item-5-txt-2b{
-        //     -webkit-clip-path: inset(0 0 0 0);
-        //     clip-path: inset(0 0 0 0);
-        //     display:inline-block;
-        // }
 
         #item-5 p{
             text-align:center;

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HomeGrid msg="Welcome to Your Vue.js App"/>
+    <HomeGrid/>
   </div>
 </template>
 
