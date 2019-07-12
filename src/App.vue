@@ -221,6 +221,7 @@ export default {
       TweenMax.set('#zp6', {css: {y:'0%'}});
       TweenMax.set('#zp7', {css: {y:'0%'}});
       this.isbtndisabled = false
+      this.changethepagenumber(this.pagenum)
     }
   }
 }

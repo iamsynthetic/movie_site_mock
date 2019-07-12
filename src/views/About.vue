@@ -8,6 +8,8 @@
 
 // import { TweenMax } from 'gsap'
 // import router from '../router'
+import { TweenMax } from 'gsap'
+import { MapState, MapMutations, MapActions, mapGetters } from 'vuex'
 import AboutGrid from '@/components/AboutGrid.vue'
 
 export default {
@@ -26,10 +28,10 @@ name:'About',
 
   },
   mounted(){
-
+    
   },
   methods:{
-  
+    
   }
 }
 </script>

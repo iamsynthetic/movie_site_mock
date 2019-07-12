@@ -7,12 +7,12 @@
         <div id="a-item-4" class="a-item"></div>
         <div id="a-item-5" class="a-item">
             <ul>
-                <li><span id="a-item-5-txt-1"><p id="a-title1" class="a-titletxt">Chase the</p></span></li>
-                <li><span id="a-item-5-txt-1b"><p id="a-title2" class="a-titletxt">Flavors</p></span></li>
+                <li><span id="a-item-5-txt-1"><p id="a-title1" class="a-titletxt">We Serve</p></span></li>
+                <li><span id="a-item-5-txt-1b"><p id="a-title2" class="a-titletxt">Passion</p></span></li>
             </ul>
             <ul>
-                <li><span id="a-item-5-txt-2"><p id="a-title3" class="a-bodytxt">WHERE FOOD SPEAKS</p></span></li>
-                <li><span id="a-item-5-txt-2b"><p id="a-title4" class="a-bodytxt">WITH YOUR PALATE</p></span></li>
+                <li><span id="a-item-5-txt-2"><p id="a-title3" class="a-bodytxt">AND FLAVOR</p></span></li>
+                <li><span id="a-item-5-txt-2b"><p id="a-title4" class="a-bodytxt">EXPLOSIONS</p></span></li>
             </ul>
         </div>
         
@@ -30,7 +30,6 @@ export default {
     
     data(){
         return{
-            blah: 0
         }
     },
 
